@@ -16,12 +16,6 @@ def sign(message, private_key):
     signature = pow(message_int, d, n)
     return signature
 
-def verify(message, signature, public_key):
-    e, n = public_key
-    message_int = int.from_bytes(message.encode('utf-8'), byteorder='big')
-    signed_message_int = pow(signature, e, n) 
-    return message_int == signed_message_int
-
 def chosen_ciphertext_attack(public_key, private_key):
     m1 = "Hello"
     m2 = "World"
